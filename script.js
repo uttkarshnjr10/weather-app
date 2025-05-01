@@ -9,7 +9,7 @@ const chatbotQuestions = document.querySelector(".chatbot-questions");
 const chatbotResponse = document.querySelector(".chatbot-response");
 const languageSelector = document.querySelector(".language-selector");
 
-
+// custom chatbot just to know the weather termology
 const chatbotAnswers = {
     humidity: {
         english: "Humidity is the amount of water vapor present in the air. High humidity can make it feel warmer, while low humidity can feel cooler. It's measured as a percentage, with 100% meaning the air is fully saturated.",
@@ -78,18 +78,23 @@ async function checkweather(city) {
         document.querySelector(".humidity").innerText = data.main.humidity + "%";
         document.querySelector(".wind").innerText = data.wind.speed + " km/h";
 
-        if (data.weather[0].main === "Clouds") {
-            weatherIcon.src = "images/clouds.png";
-        } else if (data.weather[0].main === "Clear") {
-            weatherIcon.src = "images/clear.png";
-        } else if (data.weather[0].main === "Rain") {
-            weatherIcon.src = "images/rain.png";
-        } else if (data.weather[0].main === "Mist") {
-            weatherIcon.src = "images/mist.png";
-        } else if (data.weather[0].main === "Snow") {
-            weatherIcon.src = "images/snow.png";
-        } else {
-            weatherIcon.src = "images/unknown.png";
+        if (data.weather[0].main == "Clouds") {
+            weatherIcon.src = "clouds.png";
+        }
+        else if (data.weather[0].main == "Clear") {
+            weatherIcon.src = "clear.png";
+        }
+        else if (data.weather[0].main == "Rain") {
+            weatherIcon.src = "rain.png";
+        }
+        else if (data.weather[0].main == "Mist") {
+            weatherIcon.src = "mist.png";
+        }
+        else if (data.weather[0].main == "Snow") {
+            weatherIcon.src = "snow.png";
+        }
+        else {
+            weatherIcon.src = "unknown.png";
         }
 
     
